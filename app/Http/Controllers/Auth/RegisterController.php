@@ -10,6 +10,7 @@ use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -75,12 +76,14 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }  
-protected function Registered(Request $request, $user )
+protected function registered(Request $request, $user )
 {
-    $user -> notify(new AccountConfirmationNotification($user)); 
+    //$user -> notify(new AccountConfirmationNotification($user)); 
+    Notification::send($user, new AccountConfirmationNotification($user));
     Auth::logout();
      return redirect() -> route('login');
 }
 
 
 }
+ 

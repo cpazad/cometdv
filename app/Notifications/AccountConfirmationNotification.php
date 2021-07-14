@@ -46,7 +46,7 @@ class AccountConfirmationNotification extends Notification
         return (new MailMessage)
                     ->line('Welcome' . $this -> notify_info -> name . 'to our eCommerce project')
                     ->line('We are really happy to see you')
-                    ->action('To Order Our Product', url('www.freedombyte.com'))
+                    ->action('To Order Our Product', url('www.freedombyte.com   '))
                     ->line('Thank you for using our application!');
     }
 
