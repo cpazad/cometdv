@@ -158,7 +158,10 @@
 							</div>
 							<a class="dropdown-item" href="profile.html">My Profile</a>
 							<a class="dropdown-item" href="settings.html">Settings</a>
-							<a class="dropdown-item" href="login.html">Logout</a>
+							<a id="logout_button" class="dropdown-item" href="login.html">Logout</a>
+							<form id="logout_form" action="{{route('admin.logout')}}" method ="POST">
+								@csrf 
+							</form>
 						</div>
 					</li>
 					<!-- /User Menu -->
@@ -795,6 +798,7 @@
 		
 		<!-- Custom JS -->
 		<script  src="assets/js/script.js"></script>
+		<script src="{{asset('admin/assets/js/comet/custom.js')}}"></script>
 		
     </body>
 

@@ -81,7 +81,7 @@ protected function registered(Request $request, $user )
     $user -> notify(new AccountConfirmationNotification($user)); 
     //Notification::send($user, new AccountConfirmationNotification($user));
     Auth::logout();
-     return redirect() -> route('login');
+     return redirect() -> route('admin.login');
 }
 
 
